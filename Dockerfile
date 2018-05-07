@@ -1,4 +1,4 @@
-FROM circleci/python:3.6.5
+FROM circleci/python-browsers:3.6.5
 RUN sudo sh -c 'echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list' \
     && sudo apt-get update \
     && sudo apt-get install -y python-dev libxml2-dev libxslt1-dev antiword unrtf poppler-utils gcc \
