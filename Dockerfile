@@ -1,5 +1,5 @@
-FROM circleci/python-browsers:3.6.5
-RUN sudo sh -c 'echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list' \
-    && sudo apt-get update \
-    && sudo apt-get install -y python-dev libxml2-dev libxslt1-dev antiword unrtf poppler-utils gcc \
-    pstotext tesseract-ocr flac ffmpeg lame libmad0 libsox-fmt-mp3 sox libjpeg-dev swig libpulse-dev
+FROM circleci/python:3.6.5-browsers
+RUN sudo apt-get update \
+    && sudo dpkg --force-depends -r libpulse0 libcups2 && sudo apt-get -f install \
+    && sudo apt-get install -y python-dev libxml2-dev libxslt1-dev antiword unrtf poppler-utils gcc pstotext ghostscript libgs9 libcupsimage2 \
+    tesseract-ocr flac ffmpeg lame libmad0 libsox-fmt-mp3 sox libjpeg-dev swig libpulse-dev
